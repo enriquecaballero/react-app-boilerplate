@@ -28,7 +28,7 @@ module.exports = {
     new HtmlWebpackPlugin ({
       title: packageJSON.name,
       favicon: path.resolve (ROOT, "resources", "favicon.ico"),
-      template: path.resolve (ROOT, "src", "templates", "index.html"),
+      template: path.resolve (ROOT, "src", "templates", "index.ejs"),
       inject: "body",
       filename: "index.html"
     })
