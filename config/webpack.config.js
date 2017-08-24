@@ -17,7 +17,10 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"],
+    alias: {
+      "~": path.resolve (ROOT, "src")
+    }
   },
   plugins: [
     new webpack.DefinePlugin ({
