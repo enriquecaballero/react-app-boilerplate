@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack",
-    "pretty": "prettier-eslint --write \"{src,server}/**/*.@(js|jsx)\"",
+    "pretty": "prettier-eslint --write \"src/**/*.@(js|jsx)\"",
     "cz": "git-cz",
     "commitmsg": "validate-commit-msg",
     "test": "jest"
