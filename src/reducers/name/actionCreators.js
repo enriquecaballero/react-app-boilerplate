@@ -1,6 +1,6 @@
 /* @flow */
 
-import { SET_NAME } from "../constants/";
+import { SET_NAME } from "./actions";
 
 export const setName = (name: string): Object => {
   return {
