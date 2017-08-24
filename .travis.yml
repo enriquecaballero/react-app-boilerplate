@@ -17,6 +17,8 @@ node_js:
   - '7'
   - '6'
 script:
+  - yarn test
+after_success:
   - yarn build
 branches:
   only:
