@@ -55,6 +55,8 @@
     "prettier-eslint-cli": "^4.1.1",
     "react-hot-loader": "next",
     "react-test-renderer": "^15.6.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^4.9.1",
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.1",
     "url-loader": "^0.5.9",
