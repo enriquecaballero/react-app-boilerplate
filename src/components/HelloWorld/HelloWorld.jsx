@@ -1,8 +1,9 @@
 /* @flow */
 
 import React from "react";
+import StoreRenderer from "../StoreRenderer";
 
-export default function (props: any): ?React$Element<any> {
+export default function HelloWorld (props: any): ?React$Element<any> {
   return (
     <div>
       <h2>
@@ -12,6 +13,11 @@ export default function (props: any): ?React$Element<any> {
         value={props.name}
         onChange={event => props.setName (event.target.value)}
       />
+      <StoreRenderer />
     </div>
   );
 }
+
+HelloWorld.defaultProps = {
+  name: ""
+};

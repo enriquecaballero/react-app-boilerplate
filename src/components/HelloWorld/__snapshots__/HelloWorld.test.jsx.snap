@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelloWorld works 1`] = `
+exports[`<HelloWorld /> works 1`] = `
 <div>
   <h2>
     Hello, 
@@ -11,5 +11,6 @@ exports[`HelloWorld works 1`] = `
     onChange={[Function]}
     value="Bob"
   />
+  <StoreRenderer />
 </div>
 `;

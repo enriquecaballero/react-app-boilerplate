@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StoreRenderer /> works 1`] = `
+<pre>
+  redux: {
+    "name": "World"
+  }
+</pre>
+`;

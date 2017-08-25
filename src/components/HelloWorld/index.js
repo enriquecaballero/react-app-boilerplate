@@ -3,7 +3,7 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HelloWorld from "./HelloWorld";
-import { setName } from "~/reducers/name";
+import { setName } from "../../reducers/name";
 
 function mapStateToProps (state: any): Object {
   return {
