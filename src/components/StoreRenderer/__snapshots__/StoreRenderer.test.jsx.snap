@@ -3,7 +3,7 @@
 exports[`<StoreRenderer /> works 1`] = `
 <pre>
   redux: {
-    "name": "World"
-  }
+  "name": "World"
+}
 </pre>
 `;
