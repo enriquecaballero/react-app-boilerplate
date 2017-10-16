@@ -9,13 +9,12 @@ const packageJSON = JSON.parse (
 );
 
 module.exports = {
-  entry: ["babel-polyfill", path.resolve (ROOT, "src", "root.jsx")],
+  entry: { bundle: ["babel-polyfill", path.resolve (ROOT, "src", "root.jsx")] },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve (ROOT, "dist"),
     publicPath: ""
   },
-  devtool: "source-map",
   resolve: {
     extensions: ["*", ".js", ".jsx"],
     alias: {
@@ -23,6 +22,10 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin ({
+      name: "vendor",
+      minChunks: ({ resource }) => /node_modules/.test (resource)
+    }),
     new webpack.DefinePlugin ({
       "process.env": {
         NODE_ENV: JSON.stringify (process.env.NODE_ENV || "production")

@@ -17,11 +17,14 @@ const devServer = {
 };
 
 module.exports = Object.assign ({}, webpackConfig, {
-  entry: [
-    webpackConfig.entry[0],
-    "react-hot-loader/patch",
-    "webpack/hot/only-dev-server"
-  ].concat (webpackConfig.entry.slice (1)),
+  entry: {
+    bundle: [
+      webpackConfig.entry.bundle[0],
+      "react-hot-loader/patch",
+      "webpack/hot/only-dev-server"
+    ].concat (webpackConfig.entry.bundle.slice (1))
+  },
+  devtool: "source-map",
   devServer,
   plugins: webpackConfig.plugins.concat ([
     new DashboardPlugin (setData),
