@@ -1,9 +1,7 @@
-/* @flow */
-
 import { connect } from "react-redux";
 import StoreRenderer from "./StoreRenderer";
 
-function mapStateToProps (state: any): Object {
+function mapStateToProps (state): Object {
   return {
     state
   };

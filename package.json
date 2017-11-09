@@ -17,7 +17,9 @@
     "resolver": "jest-webpack-resolver"
   },
   "babel": {
-    "presets": ["./.babelrc.js"]
+    "presets": [
+      "./.babelrc.js"
+    ]
   },
   "config": {
     "commitizen": {
@@ -58,7 +60,6 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "file-loader": "^0.11.2",
-    "flow-bin": "^0.54.1",
     "html-webpack-plugin": "^2.30.0",
     "husky": "^0.14.3",
     "jest": "^21.0.2",

@@ -1,5 +1,3 @@
-/* @flow */
-
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
@@ -20,8 +18,6 @@ const render = (Component: ReactClass<any>) => {
 };
 
 render (Router);
-
-declare var module: any;
 
 if (module.hot) {
   module.hot.accept ("./components/", () => {

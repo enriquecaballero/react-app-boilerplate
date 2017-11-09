@@ -1,4 +1,0 @@
-[options]
-module.name_mapper.extension='less' -> 'empty/object'
-module.name_mapper.extension='css' -> 'empty/object'
-module.name_mapper.extension='ico' -> 'empty/object'

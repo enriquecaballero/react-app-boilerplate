@@ -1,5 +1,3 @@
-/* @flow */
-
 import { createStore, compose } from "redux";
 import rootReducer from "../reducers/";
 import { persistStore, autoRehydrate } from "redux-persist";
