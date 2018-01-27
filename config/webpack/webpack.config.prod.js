@@ -10,12 +10,12 @@ module.exports = Object.assign({}, webpackConfig, {
       uglifyOptions: {
         compress: false
       }
-    }),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$/,
-      deleteOriginalAssets: true
     })
+    // new CompressionPlugin({
+    //   asset: "[path].gz[query]",
+    //   algorithm: "gzip",
+    //   test: /\.js$|\.css$|\.html$/,
+    //   deleteOriginalAssets: true
+    // })
   ])
 });
