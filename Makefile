@@ -3,7 +3,7 @@
 TAG ?= latest
 IMAGE ?= react-app-boilerplate
 
-all: build
+all: docker
 
 clean:
 	rm -rf node_modules
@@ -12,8 +12,8 @@ clean:
 node_modules: clean
 	yarn install
 
-webpack: node_modules
+build: node_modules
 	yarn build
 
-build: webpack
+docker: build
 	docker build -t "$(IMAGE):$(TAG)" .
