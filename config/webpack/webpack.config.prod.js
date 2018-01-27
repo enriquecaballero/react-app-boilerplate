@@ -14,7 +14,7 @@ module.exports = Object.assign({}, webpackConfig, {
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
+      test: /\.js$|\.css$/,
       deleteOriginalAssets: true
     })
   ])
