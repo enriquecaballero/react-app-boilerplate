@@ -1,40 +1,40 @@
-var webpack = require ("webpack");
-var path = require ("path");
-var HtmlWebpackPlugin = require ("html-webpack-plugin");
-var fs = require ("fs");
+var webpack = require("webpack");
+var path = require("path");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var fs = require("fs");
 
-const ROOT = process.cwd ();
-const packageJSON = JSON.parse (
-  fs.readFileSync (path.resolve (ROOT, "package.json"), "utf8")
+const ROOT = process.cwd();
+const packageJSON = JSON.parse(
+  fs.readFileSync(path.resolve(ROOT, "package.json"), "utf8")
 );
 
 module.exports = {
-  entry: { bundle: ["babel-polyfill", path.resolve (ROOT, "src", "root.jsx")] },
+  entry: { bundle: ["babel-polyfill", path.resolve(ROOT, "src", "root.jsx")] },
   output: {
     filename: "[name].js",
-    path: path.resolve (ROOT, "dist"),
+    path: path.resolve(ROOT, "dist"),
     publicPath: ""
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"],
     alias: {
-      "~": path.resolve (ROOT, "src")
+      "~": path.resolve(ROOT, "src")
     }
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin ({
+    new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
-      minChunks: ({ resource }) => /node_modules/.test (resource)
+      minChunks: ({ resource }) => /node_modules/.test(resource)
     }),
-    new webpack.DefinePlugin ({
+    new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify (process.env.NODE_ENV || "production")
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
       }
     }),
-    new HtmlWebpackPlugin ({
+    new HtmlWebpackPlugin({
       title: packageJSON.name,
-      favicon: path.resolve (ROOT, "resources", "favicon.ico"),
-      template: path.resolve (ROOT, "src", "templates", "index.ejs"),
+      favicon: path.resolve(ROOT, "resources", "favicon.ico"),
+      template: path.resolve(ROOT, "src", "templates", "index.ejs"),
       inject: "body",
       filename: "index.html"
     })

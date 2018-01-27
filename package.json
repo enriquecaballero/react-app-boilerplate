@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack",
+    "start":
+      "NODE_ENV=development webpack-dev-server --config ./config/webpack",
+    "build": "NODE_ENV=production webpack --config ./config/webpack",
     "pretty": "prettier-eslint --write \"src/**/*.@(js|jsx)\"",
     "cz": "git-cz",
     "commitmsg": "validate-commit-msg",
@@ -17,9 +18,10 @@
     "resolver": "jest-webpack-resolver"
   },
   "babel": {
-    "presets": [
-      "./.babelrc.js"
-    ]
+    "presets": ["./config/.babelrc.js"]
+  },
+  "eslintConfig": {
+    "extends": "./config/.eslintrc.yml"
   },
   "config": {
     "commitizen": {
