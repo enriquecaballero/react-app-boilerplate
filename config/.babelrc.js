@@ -9,7 +9,7 @@ const presets = [
         browsers: ["chrome > 48", "firefox > 30"]
       },
       useBuiltIns: "usage",
-      modules: process.env.NODE_ENV === TEST
+      modules: process.env.NODE_ENV === TEST ? "commonjs" : false
     }
   ],
   require.resolve("babel-preset-react")

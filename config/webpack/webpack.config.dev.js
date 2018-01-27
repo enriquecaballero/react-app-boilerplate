@@ -1,19 +1,15 @@
 var webpack = require("webpack");
 var path = require("path");
-var Dashboard = require("webpack-dashboard");
-var DashboardPlugin = require("webpack-dashboard/plugin");
 var webpackConfig = require("./webpack.config");
 
 const ROOT = process.cwd();
-const setData = new Dashboard().setData;
 
 const devServer = {
   hot: true,
   host: "0.0.0.0",
   contentBase: path.resolve(ROOT, "dist"),
   publicPath: "/",
-  stats: { colors: true },
-  quiet: true
+  stats: { colors: true }
 };
 
 module.exports = Object.assign({}, webpackConfig, {
@@ -27,7 +23,6 @@ module.exports = Object.assign({}, webpackConfig, {
   devtool: "source-map",
   devServer,
   plugins: webpackConfig.plugins.concat([
-    new DashboardPlugin(setData),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ])

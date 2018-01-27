@@ -1,4 +1,4 @@
-module.exports = () => {
+const getWebpackConfig = () => {
   switch (process.env.npm_lifecycle_event) {
     case "start":
       return require("./webpack.config.dev");
@@ -6,3 +6,5 @@ module.exports = () => {
       return require("./webpack.config.prod");
   }
 };
+
+module.exports = getWebpackConfig();
