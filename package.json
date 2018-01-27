@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":
-      "NODE_ENV=development webpack-dev-server --config ./config/webpack",
+    "start": "NODE_ENV=development webpack-dev-server --config ./config/webpack",
     "build": "NODE_ENV=production webpack --config ./config/webpack",
     "pretty": "prettier-eslint --write \"src/**/*.@(js|jsx)\"",
     "cz": "git-cz",
@@ -21,7 +20,9 @@
     "resolver": "jest-webpack-resolver"
   },
   "babel": {
-    "presets": ["./config/.babelrc.js"]
+    "presets": [
+      "./config/.babelrc.js"
+    ]
   },
   "eslintConfig": {
     "extends": "./config/.eslintrc.yml"
@@ -78,12 +79,10 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.5.0",
     "style-loader": "^0.20.1",
-    "styled-components": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "validate-commit-msg": "^2.14.0",
     "webpack": "^3.10.0",
-    "webpack-dashboard": "^1.1.1",
     "webpack-dev-server": "^2.11.1"
   }
 }
