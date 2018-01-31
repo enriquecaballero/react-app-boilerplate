@@ -1,12 +1,22 @@
 image: node:latest
 
-variables:
-  GIT_STRATEGY: clone
-
 cache:
   paths:
-  - node_modules/
+  - node_modules
 
-install:
+stages:
+  - test
+  - build
+  
+before_script:
+  - yarn install
+
+test:
+  stage: test
+  script: 
+    - yarn test
+
+build:
+  stage: build
   script:
-   - yarn
+    - yarn build
