@@ -1,5 +1,8 @@
 image: node:latest
 
+variables:
+  GIT_STRATEGY: clone
+
 cache:
   paths:
   - node_modules/
