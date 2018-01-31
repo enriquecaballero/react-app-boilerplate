@@ -9,4 +9,4 @@ cache:
 
 install:
   script:
-   - npm install
+   - yarn
