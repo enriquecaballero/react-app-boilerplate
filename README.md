@@ -1,6 +1,6 @@
 # react-app-boilerplate
 
-[![Build Status](https://travis-ci.org/enriquecaballero/react-app-boilerplate.svg?branch=master)](https://travis-ci.org/enriquecaballero/react-app-boilerplate) [![Greenkeeper badge](https://badges.greenkeeper.io/enriquecaballero/branchsite.svg)](https://greenkeeper.io/) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![pipeline status](https://gitlab.caballero.network/enrique/react-app-boilerplate/badges/master/pipeline.svg)](https://gitlab.caballero.network/enrique/react-app-boilerplate/commits/master) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Demo
 https://enriquecaballero.github.io/react-app-boilerplate/
