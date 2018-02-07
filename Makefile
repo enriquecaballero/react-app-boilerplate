@@ -19,5 +19,5 @@ build: node_modules
 docker: build
 	docker build -t "$(REGISTRY)/$(IMAGE):$(TAG)" .
 
-deploy:
+publish:
 	docker push "$(REGISTRY)/$(IMAGE):$(TAG)"
