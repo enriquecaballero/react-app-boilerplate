@@ -1,11 +1,22 @@
 image: node:latest
+
+stages:
+  - test
+  - build
+
 cache:
   paths:
     - node_modules
-build:
-  before_script:
-    - yarn install
-  script: 
+
+before_script:
+  - yarn
+
+jest:
+  stage: test
+  script:
     - yarn test
-  after_script:
+
+transpile:
+  stage: build
+  script: 
     - yarn build
