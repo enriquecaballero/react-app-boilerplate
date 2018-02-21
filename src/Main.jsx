@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
-import Router from "./components/";
-import store, { persistor } from "./store/";
-import "font-awesome/less/font-awesome.less";
+import App from "./components";
+import store, { persistor } from "./store";
 
 const render = (Component: ReactClass<any>) => {
   ReactDOM.render(
@@ -20,10 +19,10 @@ const render = (Component: ReactClass<any>) => {
   );
 };
 
-render(Router);
+render(App);
 
 if (module.hot) {
   module.hot.accept("./components/", () => {
-    render(Router);
+    render(App);
   });
 }

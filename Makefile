@@ -1,8 +1,10 @@
 .PHONY: all clean node_modules webpack build
 
-REGISTRY ?= registry.gitlab.caballero.network/enrique
+REGISTRY ?= registry.gitlab.caballero.network/boilerplates
 IMAGE ?= react-app-boilerplate
 TAG ?= latest
+
+
 
 all: build
 
@@ -19,5 +21,5 @@ build: node_modules
 docker: build
 	docker build -t "$(REGISTRY)/$(IMAGE):$(TAG)" .
 
-deploy:
-	docker push "$(REGISTRY)/$(IMAGE):$(TAG)"
+# deploy:
+# 	docker push "$(REGISTRY)/$(IMAGE):$(TAG)"

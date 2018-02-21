@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 services:
-  boilerplate:
-    image: 'abiosoft/caddy'
-    container_name: boilerplate
+  react-app-boilerplate:
+    image: "registry.gitlab.caballero.network/boilerplates/react-app-boilerplate"
     ports:
-      - 80:2015
+      - "80:80"
     volumes:
-      - ./dist:/srv
+      - "./dist:/srv"
+    build: "."

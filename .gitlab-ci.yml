@@ -1,22 +1,119 @@
-image: node:latest
-
 stages:
   - test
   - build
+  # - release
+  # - publish
 
-cache:
-  paths:
-    - node_modules
+.nodejs: &nodejs 
+  image: node:latest
+  before_script:
+    - yarn
+  cache:
+    paths:
+      - node_modules
 
-before_script:
-  - yarn
+#
+# Test stage
+#
 
-jest:
+unit tests:
+  <<: *nodejs
   stage: test
   script:
     - yarn test
+  # only:
+  #   - branches
+  # except:
+  #   - master
 
-transpile:
+#
+# Build stage
+#
+
+.build_static_assets: &build_static_assets
   stage: build
-  script: 
+  script:
     - yarn build
+
+static assets:
+  <<: *nodejs
+  <<: *build_static_assets
+  # only:
+  #   - branches
+  # except:
+  #   - master
+  #   - develop
+  
+# artifacts:
+#   <<: *nodejs
+#   <<: *build_static_assets
+#   artifacts:
+#     expire_in: 30 mins
+#     paths:
+#       - dist/
+#   only:
+#     - tags
+#     - develop
+
+#
+# Release stage
+#
+
+# .release_variables: &release_variables
+#   GIT_STRATEGY: clone    
+
+# git tag:
+#   <<: *nodejs
+#   stage: release
+#   variables:
+#     <<: *release_variables
+#     ORIGIN: "https://gitlab-ci-token:$CI_ACCESS_TOKEN@gitlab.caballero.network/boilerplates/react-app-boilerplate.git"
+#   script:
+#     - git config --global user.email $GITLAB_USER_NAME
+#     - git config --global user.name $GITLAB_USER_EMAIL
+#     - node config/scripts/release.js
+#     - git push --follow-tags $ORIGIN HEAD:master
+#   only:
+#     - master
+
+#
+# Publish stage
+#
+
+# .gitlab_docker_registry: &gitlab_docker_registry
+#   image: docker:latest
+#   services:
+#     - docker:dind
+#   before_script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+# latest image:
+#   <<: *gitlab_docker_registry
+#   stage: publish
+#   variables:
+#     <<: *release_variables
+#     TAG: "latest"
+#   script: &release_definition
+#     - docker build -t $CI_REGISTRY_IMAGE:$TAG .
+#     - docker push $CI_REGISTRY_IMAGE:$TAG
+#   dependencies: &release_dependencies
+#     - artifacts
+#   only:
+#     - develop
+
+# tagged image: &tagged_image
+#   <<: *gitlab_docker_registry
+#   stage: publish
+#   variables:
+#     <<: *release_variables
+#     TAG: $CI_COMMIT_TAG
+#   script: *release_definition
+#   dependencies: *release_dependencies
+#   only:
+#     - tags
+
+# stable image:
+#   <<: *tagged_image
+#   variables:
+#     <<: *release_variables
+#     TAG: "stable"

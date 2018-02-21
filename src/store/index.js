@@ -1,11 +1,10 @@
 const getStoreConfiguration = () => {
   switch (process.env.NODE_ENV) {
     case "production":
-      return require("./configureStore.production");
     case "development":
-      return require("./configureStore.development");
+      return require(`./configureStore/${process.env.NODE_ENV}`);
     default:
-      return require("./configureStore.testing");
+      return require("./configureStore/testing");
   }
 };
 

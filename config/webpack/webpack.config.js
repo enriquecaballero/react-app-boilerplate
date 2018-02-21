@@ -9,7 +9,7 @@ const packageJSON = JSON.parse(
 );
 
 module.exports = {
-  entry: { bundle: ["babel-polyfill", path.resolve(ROOT, "src", "root.jsx")] },
+  entry: { bundle: ["babel-polyfill", path.resolve(ROOT, "src/Main.jsx")] },
   output: {
     filename: "[name].js",
     path: path.resolve(ROOT, "dist"),
@@ -22,10 +22,6 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: ({ resource }) => /node_modules/.test(resource)
-    }),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
@@ -45,10 +41,6 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
-      },
-      {
-        test: /\.(css|less)$/,
-        loaders: ["style-loader", "css-loader", "less-loader"]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,

@@ -1,10 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import store from "../../store";
+import mockStore from "../../store";
 import StoreRenderer from "./StoreRenderer";
 
-describe("<StoreRenderer />", () => {
-  it("works", () => {
+const initialState = {};
+const store = mockStore(initialState);
+
+describe("StoreRenderer", () => {
+  it("renders", () => {
     const component = renderer.create(
       <StoreRenderer state={store.getState()} />
     );
