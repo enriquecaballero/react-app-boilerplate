@@ -4,8 +4,6 @@ REGISTRY ?= registry.gitlab.caballero.network/boilerplates
 IMAGE ?= react-app-boilerplate
 TAG ?= latest
 
-
-
 all: build
 
 clean:
