@@ -1,10 +1,10 @@
 stages:
-  - test
+  # - test
   - build
   # - release
   # - publish
 
-.nodejs: &nodejs 
+.nodejs: &nodejs
   image: node:latest
   before_script:
     - yarn
@@ -16,15 +16,15 @@ stages:
 # Test stage
 #
 
-unit tests:
-  <<: *nodejs
-  stage: test
-  script:
-    - yarn test
-  # only:
-  #   - branches
-  # except:
-  #   - master
+# unit tests:
+# <<: *nodejs
+# stage: test
+# script:
+#   - yarn test
+# only:
+#   - branches
+# except:
+#   - master
 
 #
 # Build stage
@@ -43,7 +43,7 @@ static assets:
   # except:
   #   - master
   #   - develop
-  
+
 # artifacts:
 #   <<: *nodejs
 #   <<: *build_static_assets
@@ -60,7 +60,7 @@ static assets:
 #
 
 # .release_variables: &release_variables
-#   GIT_STRATEGY: clone    
+#   GIT_STRATEGY: clone
 
 # git tag:
 #   <<: *nodejs
