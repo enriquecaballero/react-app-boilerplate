@@ -1,18 +1,22 @@
-import React from "react";
-import StoreRenderer from "../StoreRenderer";
+import React, { PureComponent } from "react";
 import styles from "./HelloWorld.scss";
 
-export default function HelloWorld(props) {
-  return (
-    <div>
-      <h2 className={styles.Title}>Hello, {props.name}!</h2>
-      <input
-        value={props.name}
-        onChange={event => props.setName(event.target.value)}
-      />
-      <StoreRenderer />
-    </div>
-  );
+export default class HelloWorld extends PureComponent {
+  state = {
+    name: ""
+  };
+  onChange = event => {
+    this.setState({ name: event.target.value });
+  };
+  render() {
+    const { name } = this.state;
+    return (
+      <div>
+        <h2 className={styles.Title}>Hello, {name}!</h2>
+        <input value={name} onChange={this.onChange} />
+      </div>
+    );
+  }
 }
 
 HelloWorld.defaultProps = {

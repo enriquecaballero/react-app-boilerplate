@@ -1,32 +1,15 @@
-var webpack = require("webpack");
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var fs = require("fs");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const packageJSON = require("../../package.json");
 
 const ROOT = process.cwd();
-const packageJSON = JSON.parse(
-  fs.readFileSync(path.resolve(ROOT, "package.json"), "utf8")
-);
 
 module.exports = {
-  entry: { bundle: ["babel-polyfill", path.resolve(ROOT, "src/Main.jsx")] },
-  output: {
-    filename: "[name].js",
-    path: path.resolve(ROOT, "dist"),
-    publicPath: ""
-  },
+  entry: ["babel-polyfill", path.resolve(ROOT, "src", "index.js")],
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
-    alias: {
-      "~": path.resolve(ROOT, "src")
-    }
+    extensions: [".js", ".jsx", ".css", ".scss"]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
-      }
-    }),
     new HtmlWebpackPlugin({
       title: packageJSON.name,
       favicon: path.resolve(ROOT, "resources", "favicon.ico"),
@@ -41,6 +24,36 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.(css|scss)$/,
+        include: /node_modules/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(css|scss)$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 2,
+              sourceMap: true,
+              localIdentName: "[name]__[local]__[hash:base64:8]"
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              config: {
+                path: path.resolve(ROOT, "config", "postcss.config.js")
+              }
+            }
+          },
+          "sass-loader"
+        ]
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
