@@ -18,7 +18,7 @@
     "react-hot-loader": "4.3.4"
   },
   "devDependencies": {
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^9.1.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
