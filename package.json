@@ -13,7 +13,7 @@
     "commitmsg": "validate-commit-msg"
   },
   "dependencies": {
-    "react": "^16.4.2",
+    "react": "^16.8.5",
     "react-dom": "^16.4.2",
     "react-hot-loader": "4.3.4"
   },
