@@ -46,7 +46,7 @@
     "git-latest-semver-tag": "^1.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.12.0",
     "postcss-loader": "^2.1.0",
     "prettier": "^1.10.2",
     "prettier-eslint-cli": "^4.7.0",
