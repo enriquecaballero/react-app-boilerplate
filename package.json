@@ -15,7 +15,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-hot-loader": "4.3.4"
+    "react-hot-loader": "4.12.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
